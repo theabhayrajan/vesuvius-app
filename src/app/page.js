@@ -1,103 +1,563 @@
-import Image from "next/image";
+"use client";
+
+import { useState } from "react";
+import TopNavbar from "@/app/(Dashboard)/components/Navbar";
+import Sidebar from "@/app/(Dashboard)/components/Sidebar";
+import DashboardCards from "@/app/(Dashboard)/components/DashboardCards";
+import ManagerTable from "@/app/(Dashboard)/components/ManagerTable";
+import AddManagerModal from "@/app/(Dashboard)/components/AddManagerModal";
+import ConfirmDeleteModal from "@/app/(Dashboard)/components/ConfirmDeleteModal";
+import UpdateManagerModal from "@/app/(Dashboard)/components/UpdateManagerModal";
+import ReportCharts from "@/app/(Dashboard)/components/ReportCharts";
 
 export default function Home() {
-  return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.js
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const [showAddModal, setShowAddModal] = useState(false);
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [showUpdateModal, setShowUpdateModal] = useState(false);
+  const [selectedIndex, setSelectedIndex] = useState(null);
+  const [isMobileOpen, setIsMobileOpen] = useState(false); // <-- Added this
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+  const [managers, setManagers] = useState([
+  {
+    name: "Yash",
+    contact: "9876543210",
+    client: "Mohan Lal Pandey",
+    location: "Noida",
+    workers: 4,
+    report: "Pending",
+    machine: "Not Assign",
+    date: "04 Apr'24",
+  },
+  {
+    name: "Abhishek",
+    contact: "9898765432",
+    client: "Rajesh Kumar",
+    location: "Delhi",
+    workers: 3,
+    report: "Done",
+    machine: "Assign",
+    date: "12 Mar'24",
+  },
+  {
+    name: "Sneha",
+    contact: "9823456789",
+    client: "Anil Sharma",
+    location: "Mumbai",
+    workers: 5,
+    report: "Pending",
+    machine: "Assign",
+    date: "25 May'24",
+  },
+  {
+    name: "Ravi",
+    contact: "9811122233",
+    client: "Sunita Devi",
+    location: "Kolkata",
+    workers: 2,
+    report: "Done",
+    machine: "Not Assign",
+    date: "17 Feb'24",
+  },
+  {
+    name: "Pooja",
+    contact: "9809098765",
+    client: "Ramesh Gupta",
+    location: "Pune",
+    workers: 6,
+    report: "Pending",
+    machine: "Assign",
+    date: "30 Jun'24",
+  },
+  {
+    name: "Vikas",
+    contact: "9877001122",
+    client: "Suresh Yadav",
+    location: "Chennai",
+    workers: 3,
+    report: "Done",
+    machine: "Assign",
+    date: "10 Jan'24",
+  },
+  {
+    name: "Kiran",
+    contact: "9888123456",
+    client: "Ajay Mehta",
+    location: "Bengaluru",
+    workers: 1,
+    report: "Pending",
+    machine: "Not Assign",
+    date: "05 May'24",
+  },
+  {
+    name: "Manoj",
+    contact: "9812233445",
+    client: "Vijay Kumar",
+    location: "Hyderabad",
+    workers: 4,
+    report: "Done",
+    machine: "Assign",
+    date: "20 Apr'24",
+  },
+  {
+    name: "Divya",
+    contact: "9822009988",
+    client: "Arun Sharma",
+    location: "Jaipur",
+    workers: 2,
+    report: "Pending",
+    machine: "Not Assign",
+    date: "15 Aug'24",
+  },
+  {
+    name: "Sandeep",
+    contact: "9800112233",
+    client: "Mahesh Patil",
+    location: "Lucknow",
+    workers: 5,
+    report: "Done",
+    machine: "Assign",
+    date: "08 Jul'24",
+  },
+  {
+    name: "Priya",
+    contact: "9845123456",
+    client: "Anita Singh",
+    location: "Surat",
+    workers: 3,
+    report: "Pending",
+    machine: "Assign",
+    date: "14 Sep'24",
+  },
+  {
+    name: "Amit",
+    contact: "9810098765",
+    client: "Deepak Joshi",
+    location: "Chandigarh",
+    workers: 6,
+    report: "Done",
+    machine: "Assign",
+    date: "28 Nov'24",
+  },
+  {
+    name: "Neha",
+    contact: "9833445566",
+    client: "Rekha Verma",
+    location: "Nagpur",
+    workers: 4,
+    report: "Pending",
+    machine: "Not Assign",
+    date: "19 Dec'24",
+  },
+  {
+    name: "Kunal",
+    contact: "9821223344",
+    client: "Harish Chandra",
+    location: "Indore",
+    workers: 2,
+    report: "Done",
+    machine: "Assign",
+    date: "01 Feb'24",
+  },
+  {
+    name: "Meera",
+    contact: "9808002233",
+    client: "Sanjay Sinha",
+    location: "Bhopal",
+    workers: 3,
+    report: "Pending",
+    machine: "Assign",
+    date: "22 Mar'24",
+  },
+  {
+    name: "Arjun",
+    contact: "9899001122",
+    client: "Ravi Prasad",
+    location: "Gurgaon",
+    workers: 5,
+    report: "Done",
+    machine: "Not Assign",
+    date: "03 May'24",
+  },
+  {
+    name: "Simran",
+    contact: "9811778899",
+    client: "Shashi Kiran",
+    location: "Faridabad",
+    workers: 4,
+    report: "Pending",
+    machine: "Assign",
+    date: "29 Jun'24",
+  },
+  {
+    name: "Nitin",
+    contact: "9822001100",
+    client: "Vimal Singh",
+    location: "Patna",
+    workers: 1,
+    report: "Done",
+    machine: "Assign",
+    date: "11 Jul'24",
+  },
+  {
+    name: "Shreya",
+    contact: "9800998877",
+    client: "Rohit Bansal",
+    location: "Agra",
+    workers: 3,
+    report: "Pending",
+    machine: "Not Assign",
+    date: "17 Aug'24",
+  },
+  {
+    name: "Deepak",
+    contact: "9871234567",
+    client: "Amit Kapoor",
+    location: "Varanasi",
+    workers: 6,
+    report: "Done",
+    machine: "Assign",
+    date: "21 Sep'24",
+  },
+  {
+    name: "Isha",
+    contact: "9827654321",
+    client: "Rajeev Malhotra",
+    location: "Kanpur",
+    workers: 2,
+    report: "Pending",
+    machine: "Not Assign",
+    date: "15 Jan'24",
+  },
+  {
+    name: "Lokesh",
+    contact: "9819988776",
+    client: "Sandeep Chauhan",
+    location: "Amritsar",
+    workers: 5,
+    report: "Done",
+    machine: "Assign",
+    date: "26 Feb'24",
+  },
+  {
+    name: "Rohit",
+    contact: "9832112233",
+    client: "Tarun Arora",
+    location: "Gwalior",
+    workers: 3,
+    report: "Pending",
+    machine: "Assign",
+    date: "02 Apr'24",
+  },
+  {
+    name: "Ananya",
+    contact: "9807766554",
+    client: "Satish Nair",
+    location: "Kochi",
+    workers: 4,
+    report: "Done",
+    machine: "Not Assign",
+    date: "19 Apr'24",
+  },
+  {
+    name: "Sahil",
+    contact: "9821230099",
+    client: "Naveen Verma",
+    location: "Thane",
+    workers: 2,
+    report: "Pending",
+    machine: "Not Assign",
+    date: "28 May'24",
+  },
+  {
+    name: "Tanya",
+    contact: "9812345678",
+    client: "Pankaj Mittal",
+    location: "Bhubaneswar",
+    workers: 6,
+    report: "Done",
+    machine: "Assign",
+    date: "05 Jun'24",
+  },
+  {
+    name: "Kartik",
+    contact: "9808765432",
+    client: "Girish Shetty",
+    location: "Mysuru",
+    workers: 3,
+    report: "Pending",
+    machine: "Assign",
+    date: "14 Jul'24",
+  },
+  {
+    name: "Aarav",
+    contact: "9898877665",
+    client: "Himanshu Jain",
+    location: "Vadodara",
+    workers: 1,
+    report: "Done",
+    machine: "Not Assign",
+    date: "20 Aug'24",
+  },
+  {
+    name: "Vidya",
+    contact: "9823344556",
+    client: "Manoj Sharma",
+    location: "Rajkot",
+    workers: 4,
+    report: "Pending",
+    machine: "Assign",
+    date: "29 Aug'24",
+  },
+  {
+    name: "Jay",
+    contact: "9811009988",
+    client: "Parth Agarwal",
+    location: "Jodhpur",
+    workers: 2,
+    report: "Done",
+    machine: "Assign",
+    date: "10 Sep'24",
+  },
+  {
+    name: "Swati",
+    contact: "9844556677",
+    client: "Umesh Chandra",
+    location: "Dehradun",
+    workers: 5,
+    report: "Pending",
+    machine: "Not Assign",
+    date: "15 Oct'24",
+  },
+  {
+    name: "Harshit",
+    contact: "9819876543",
+    client: "Ashok Kumar",
+    location: "Shimla",
+    workers: 3,
+    report: "Done",
+    machine: "Assign",
+    date: "21 Oct'24",
+  },
+  {
+    name: "Monika",
+    contact: "9825678901",
+    client: "Pradeep Singh",
+    location: "Panaji",
+    workers: 4,
+    report: "Pending",
+    machine: "Assign",
+    date: "30 Oct'24",
+  },
+  {
+    name: "Aniket",
+    contact: "9801122334",
+    client: "Kailash Meena",
+    location: "Udaipur",
+    workers: 6,
+    report: "Done",
+    machine: "Assign",
+    date: "04 Nov'24",
+  },
+  {
+    name: "Bhavna",
+    contact: "9812233446",
+    client: "Sunil Rathi",
+    location: "Ranchi",
+    workers: 2,
+    report: "Pending",
+    machine: "Not Assign",
+    date: "12 Nov'24",
+  },
+  {
+    name: "Raj",
+    contact: "9833344455",
+    client: "Bharat Soni",
+    location: "Aurangabad",
+    workers: 3,
+    report: "Done",
+    machine: "Assign",
+    date: "18 Nov'24",
+  },
+  {
+    name: "Krishna",
+    contact: "9877665544",
+    client: "Vivek Tiwari",
+    location: "Guwahati",
+    workers: 5,
+    report: "Pending",
+    machine: "Assign",
+    date: "22 Nov'24",
+  },
+  {
+    name: "Geeta",
+    contact: "9844332211",
+    client: "Ashwini Patil",
+    location: "Nashik",
+    workers: 4,
+    report: "Done",
+    machine: "Not Assign",
+    date: "25 Nov'24",
+  },
+  {
+    name: "Omkar",
+    contact: "9819988775",
+    client: "Jagdish Rao",
+    location: "Madurai",
+    workers: 2,
+    report: "Pending",
+    machine: "Assign",
+    date: "01 Dec'24",
+  },
+  {
+    name: "Ramesh",
+    contact: "9822110099",
+    client: "Harbhajan Singh",
+    location: "Jalandhar",
+    workers: 1,
+    report: "Done",
+    machine: "Not Assign",
+    date: "05 Dec'24",
+  },
+  {
+    name: "Shivani",
+    contact: "9809876543",
+    client: "Tejas Kulkarni",
+    location: "Kolhapur",
+    workers: 3,
+    report: "Pending",
+    machine: "Assign",
+    date: "10 Dec'24",
+  },
+  {
+    name: "Pankaj",
+    contact: "9871230987",
+    client: "Naresh Kumar",
+    location: "Meerut",
+    workers: 6,
+    report: "Done",
+    machine: "Assign",
+    date: "15 Dec'24",
+  },
+  {
+    name: "Chirag",
+    contact: "9823344990",
+    client: "Dinesh Sharma",
+    location: "Bareilly",
+    workers: 4,
+    report: "Pending",
+    machine: "Not Assign",
+    date: "20 Dec'24",
+  },
+  {
+    name: "Lata",
+    contact: "9812347788",
+    client: "Anupam Roy",
+    location: "Howrah",
+    workers: 5,
+    report: "Done",
+    machine: "Assign",
+    date: "22 Dec'24",
+  },
+  {
+    name: "Manish",
+    contact: "9845223344",
+    client: "Prem Prakash",
+    location: "Ghaziabad",
+    workers: 3,
+    report: "Pending",
+    machine: "Assign",
+    date: "27 Dec'24",
+  },
+  {
+    name: "Tanvi",
+    contact: "9807654321",
+    client: "Hemant Joshi",
+    location: "Dharamshala",
+    workers: 2,
+    report: "Done",
+    machine: "Not Assign",
+    date: "29 Dec'24",
+  },
+  {
+    name: "Sameer",
+    contact: "9824433221",
+    client: "Kiran Desai",
+    location: "Ahmedabad",
+    workers: 4,
+    report: "Pending",
+    machine: "Assign",
+    date: "31 Dec'24",
+  },
+]);
+
+
+  const handleAddManager = (newManager) => {
+    setManagers([...managers, newManager]);
+    setShowAddModal(false);
+  };
+
+  const handleDeleteManager = () => {
+    const updatedManagers = [...managers];
+    updatedManagers.splice(selectedIndex, 1);
+    setManagers(updatedManagers);
+    setShowDeleteModal(false);
+  };
+
+  const handleUpdateManager = (updatedManager) => {
+    const updatedManagers = [...managers];
+    updatedManagers[selectedIndex] = updatedManager;
+    setManagers(updatedManagers);
+    setShowUpdateModal(false);
+  };
+
+  return (
+    <div className="flex flex-col md:flex-row min-h-screen">
+      <Sidebar isMobileOpen={isMobileOpen} setIsMobileOpen={setIsMobileOpen} />
+
+      <div className="flex-1 h-screen overflow-y-auto bg-white px-4 md:px-6 py-6">
+        <TopNavbar onHamburgerClick={() => setIsMobileOpen(true)} />
+         <div className="max-w-9xl mx-auto bg-[#f3f5f9] rounded-3xl p-6 space-y-6 shadow-sm">
+          <DashboardCards />
+
+            <ReportCharts />
+          <div className="max-w-[80vw] mx-auto bg-white rounded-2xl  ">
+
+            <ManagerTable
+              managers={managers}
+              onAddClick={() => setShowAddModal(true)}
+              onDeleteClick={(index) => {
+                setSelectedIndex(index);
+                setShowDeleteModal(true);
+              }}
+              onUpdateClick={(index) => {
+                setSelectedIndex(index);
+                setShowUpdateModal(true);
+              }}
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+
+          </div>
+
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+
+        <AddManagerModal
+          isOpen={showAddModal}
+          onClose={() => setShowAddModal(false)}
+          onAdd={handleAddManager}
+        />
+
+        <ConfirmDeleteModal
+          isOpen={showDeleteModal}
+          onClose={() => setShowDeleteModal(false)}
+          onConfirm={handleDeleteManager}
+        />
+
+        <UpdateManagerModal
+          isOpen={showUpdateModal}
+          onClose={() => setShowUpdateModal(false)}
+          onUpdate={handleUpdateManager}
+          manager={managers[selectedIndex]}
+        />
+      </div>
     </div>
   );
 }

@@ -23,7 +23,7 @@ export default function ReportCharts() {
     { name: "Thu", submitted: 30, approved: 25 },
     { name: "Fri", submitted: 40, approved: 35 },
     { name: "Sat", submitted: 30, approved: 45 },
-    { name: "Sun", submitted: 25, approved: 2 }
+    { name: "Sun", submitted: 25, approved: 20 }
   ]);
   const [pieData, setPieData] = useState([]);
   const COLORS = ["#83dfa6", "#81cafc"];

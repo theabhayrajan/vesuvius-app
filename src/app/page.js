@@ -536,7 +536,7 @@ export default function Home() {
       <div className="flex-1 h-screen overflow-y-auto bg-white px-4 md:px-6 py-6">
         <TopNavbar onHamburgerClick={() => setIsMobileOpen(true)} />
         <div className="max-w-9xl mx-auto bg-[#f3f5f9] rounded-3xl p-6 space-y-6 shadow-sm">
-          <DashboardCards />
+          <DashboardCards managers={managers} />
           <ReportCharts managers={managers} />
           <div className="max-w-[80vw] mx-auto bg-white rounded-2xl">
             <ManagerTable

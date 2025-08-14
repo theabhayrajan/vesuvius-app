@@ -1,28 +1,57 @@
+"use client"
+
 import { GrLineChart } from "react-icons/gr";
+import { useEffect, useState } from "react";
 
 // components/DashboardCards.js
-const stats = [
-  { title: "Total Clients", value: 120, percent: 69 },
-  { title: "Total Managers", value: 25, percent: 69 },
-  { title: "Total Workers", value: 250, percent: 69 },
-  { title: "Total Report Submitted", value: 44, percent: 69, today: true },
-  { title: "Total Approval", value: 12, percent: 69, today: true },
-];
 
-export default function DashboardCards() {
-   return (
+
+export default function DashboardCards({ managers }) {
+
+  const [totalSubmitted, setTotalSubmitted] = useState(0);
+  const [totalApproved, setTotalApproved] = useState(0);
+  const [totalWorkers, setTotalWorkers] = useState(0);
+  // const [totalPending, setTotalPending] = useState(0);
+
+  useEffect(() => {
+    if (!managers || managers.length === 0) return;
+
+    const submitted = managers.length;
+    const approved = managers.filter(m => m.report === "Done").length;
+    const totalWorkers = managers.reduce(
+      (sum, m) => sum + (Number(m.workers) || 0),
+      0
+    );
+
+    const pending = submitted - approved;
+
+    setTotalSubmitted(submitted);
+    setTotalApproved(approved);
+    setTotalWorkers(totalWorkers);
+    // setTotalPending(pending);
+  }, [managers]);
+
+  const stats = [
+    { title: "Total Clients", value: 120, percent: 69 },
+    { title: "Total Managers", value: totalSubmitted, percent: 69 },
+    { title: "Total Workers", value: totalWorkers, percent: 69 },
+    { title: "Total Report Submitted", value: totalSubmitted, percent: 69, today: true },
+    { title: "Total Approval", value: totalApproved, percent: 69, today: true },
+  ];
+
+  return (
     <>
 
       <div>
         <div>
-             <select
-             
-              className="text-sm px-3 py-2 bg-[#f8faff] border border-gray-300 rounded-3xl w-30 text-[#3359a3] font-semibold focus:outline-none"
-            >
-              <option value="All">Total</option>
-              <option value="Noida">Null</option>
-              <option value="Delhi">Null</option>
-            </select>
+          <select
+
+            className="text-sm px-3 py-2 bg-[#f8faff] border border-gray-300 rounded-3xl w-30 text-[#3359a3] font-semibold focus:outline-none"
+          >
+            <option value="All">Total</option>
+            <option value="Noida">Null</option>
+            <option value="Delhi">Null</option>
+          </select>
         </div>
 
         <div>

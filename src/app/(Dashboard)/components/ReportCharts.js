@@ -14,44 +14,46 @@ import {
 } from "recharts";
 import { useEffect, useState } from "react";
 
-export default function ReportCharts() {
-  // ✅ Store chart data in state
-  const [lineData, setLineData] = useState([
-    { name: "Mon", submitted: 20, approved: 1 },
-    { name: "Tue", submitted: 55, approved: 45 },
-    { name: "Wed", submitted: 35, approved: 3 },
-    { name: "Thu", submitted: 30, approved: 25 },
-    { name: "Fri", submitted: 40, approved: 35 },
-    { name: "Sat", submitted: 30, approved: 45 },
-    { name: "Sun", submitted: 25, approved: 20 }
-  ]);
+export default function ReportCharts({ managers }) {
+  const [lineData, setLineData] = useState([]);
   const [pieData, setPieData] = useState([]);
   const COLORS = ["#83dfa6", "#81cafc"];
-
   const [pieSize, setPieSize] = useState({ inner: 110, outer: 220 });
   const [chartHeight, setChartHeight] = useState(450);
 
-  // ✅ Recalculate pie data whenever line data changes
   useEffect(() => {
-    const totalSubmitted = lineData.reduce((acc, cur) => acc + cur.submitted, 0);
-    const totalApproved = lineData.reduce((acc, cur) => acc + cur.approved, 0);
-    const pending = totalSubmitted - totalApproved;
+    if (!managers || managers.length === 0) return;
 
-    const pendingPercent = ((pending / totalSubmitted) * 100).toFixed(1);
+    // ✅ Calculate counts
+    const totalSubmitted = managers.length;
+    const totalApproved = managers.filter(m => m.report === "Done").length;
+    const totalPending = totalSubmitted - totalApproved;
+
+    // ✅ Static week structure but use counts for same values (for demo)
+    const weekDays = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+    const weekData = weekDays.map(day => ({
+      name: day,
+      submitted: totalSubmitted,
+      approved: totalApproved
+    }));
+
+    setLineData(weekData);
+
+    // ✅ Pie chart percentages
+    const pendingPercent = ((totalPending / totalSubmitted) * 100).toFixed(1);
     const approvedPercent = ((totalApproved / totalSubmitted) * 100).toFixed(1);
 
     setPieData([
       { name: "Pending reports", value: Number(pendingPercent) },
       { name: "Approved reports", value: Number(approvedPercent) }
     ]);
-  }, [lineData]);
+  }, [managers]);
 
-  // ✅ Handle responsive sizes
   useEffect(() => {
     const handleResize = () => {
       const width = window.innerWidth;
       if (width < 640) {
-        setPieSize({ inner: 70, outer: 135 });
+        setPieSize({ inner: 70, outer: 132 });
         setChartHeight(300);
       } else if (width < 1024) {
         setPieSize({ inner: 90, outer: 160 });

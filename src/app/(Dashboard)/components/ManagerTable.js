@@ -95,7 +95,7 @@ const filteredManagers = managers
           <h2 className="text-2xl font-semibold text-gray-800">Managers</h2>
           <button
             onClick={onAddClick}
-            className="block md:hidden bg-[#3359a3] text-white px-4 py-2 rounded-md text-sm hover:bg-blue-700 transition"
+            className="block xl:hidden bg-[#3359a3] text-white px-4 py-2 rounded-md text-sm hover:bg-blue-700 transition"
           >
             ADD +
           </button>
@@ -138,7 +138,7 @@ const filteredManagers = managers
           <div className="w-full sm:w-auto">
             <button
               onClick={onAddClick}
-              className="hidden md:block w-full md:w-[10vw] lg:w-[6vw] bg-[#3359a3] text-white px-4 py-2 rounded-md text-sm hover:bg-blue-700 transition"
+              className="hidden xl:block w-full md:w-[10vw] lg:w-[6vw] bg-[#3359a3] text-white px-4 py-2 rounded-md text-sm hover:bg-blue-700 transition"
             >
               ADD +
             </button>
@@ -191,23 +191,23 @@ const filteredManagers = managers
                     {menuIndex === i && (
                       <div
                         ref={menuRef}
-                        className="absolute z-50 right-0 top-10 w-32 bg-white border border-gray-200 rounded shadow-md"
+                        className="absolute z-50 right-0 -top-2 w-30  bg-white border border-gray-200 rounded shadow-md"
                       >
                         <button
                           onClick={() => {
                             setMenuIndex(null);
-                            onUpdateClick(globalIndex); // ✅ FIX: pass global index
+                            onUpdateClick(m); 
                           }}
-                          className="w-full text-left px-4 py-2 hover:bg-gray-100 text-sm"
+                          className="w-full text-left px-4 py-2 hover:bg-gray-100 cursor-pointer text-sm"
                         >
                           Update
                         </button>
                         <button
                           onClick={() => {
                             setMenuIndex(null);
-                            onDeleteClick(globalIndex); // ✅ FIX: pass global index
+                            onDeleteClick(m); 
                           }}
-                          className="w-full text-left px-4 py-2 hover:bg-gray-100 text-red-600 text-sm"
+                          className="w-full text-left px-4 py-2 hover:bg-gray-100 text-red-600 cursor-pointer text-sm"
                         >
                           Delete
                         </button>

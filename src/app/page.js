@@ -1,6 +1,5 @@
 "use client";
-
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import TopNavbar from "@/app/(Dashboard)/components/Navbar";
 import Sidebar from "@/app/(Dashboard)/components/Sidebar";
 import DashboardCards from "@/app/(Dashboard)/components/DashboardCards";
@@ -14,8 +13,8 @@ export default function Home() {
   const [showAddModal, setShowAddModal] = useState(false);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [showUpdateModal, setShowUpdateModal] = useState(false);
-  const [selectedIndex, setSelectedIndex] = useState(null);
-  const [isMobileOpen, setIsMobileOpen] = useState(false); // <-- Added this
+  const [selectedManager, setSelectedManager] = useState(null);
+  const [isMobileOpen, setIsMobileOpen] = useState(false);
 
   const [managers, setManagers] = useState([
   {
@@ -489,24 +488,44 @@ export default function Home() {
     date: "31 Dec'24",
   },
 ]);
+  const [toast, setToast] = useState({ show: false, message: "" });
+  const toastTimerRef = useRef(null);
 
+  useEffect(() => {
+    return () => {
+      if (toastTimerRef.current) clearTimeout(toastTimerRef.current);
+    };
+  }, []);
 
-  const handleAddManager = (newManager) => {
+  const showToast = (message, ms = 3000) => {
+    if (toastTimerRef.current) clearTimeout(toastTimerRef.current);
+    setToast({ show: true, message });
+    toastTimerRef.current = setTimeout(() => {
+      setToast({ show: false, message: "" });
+    }, ms);
+  };
+
+ 
+
+ const handleAddManager = (newManager) => {
     setManagers([...managers, newManager]);
     setShowAddModal(false);
   };
 
   const handleDeleteManager = () => {
-    const updatedManagers = [...managers];
-    updatedManagers.splice(selectedIndex, 1);
-    setManagers(updatedManagers);
+    if (!selectedManager) return;
+    setManagers(managers.filter((m) => m !== selectedManager));
     setShowDeleteModal(false);
+     showToast("Record Deleted successfully!");
   };
 
   const handleUpdateManager = (updatedManager) => {
-    const updatedManagers = [...managers];
-    updatedManagers[selectedIndex] = updatedManager;
-    setManagers(updatedManagers);
+    if (!selectedManager) return;
+    setManagers(
+      managers.map((m) =>
+        m === selectedManager ? updatedManager : m
+      )
+    );
     setShowUpdateModal(false);
   };
 
@@ -516,27 +535,23 @@ export default function Home() {
 
       <div className="flex-1 h-screen overflow-y-auto bg-white px-4 md:px-6 py-6">
         <TopNavbar onHamburgerClick={() => setIsMobileOpen(true)} />
-         <div className="max-w-9xl mx-auto bg-[#f3f5f9] rounded-3xl p-6 space-y-6 shadow-sm">
+        <div className="max-w-9xl mx-auto bg-[#f3f5f9] rounded-3xl p-6 space-y-6 shadow-sm">
           <DashboardCards />
-
-            <ReportCharts />
-          <div className="max-w-[80vw] mx-auto bg-white rounded-2xl  ">
-
+          <ReportCharts managers={managers} />
+          <div className="max-w-[80vw] mx-auto bg-white rounded-2xl">
             <ManagerTable
               managers={managers}
               onAddClick={() => setShowAddModal(true)}
-              onDeleteClick={(index) => {
-                setSelectedIndex(index);
+              onDeleteClick={(manager) => {
+                setSelectedManager(manager);
                 setShowDeleteModal(true);
               }}
-              onUpdateClick={(index) => {
-                setSelectedIndex(index);
+              onUpdateClick={(manager) => {
+                setSelectedManager(manager);
                 setShowUpdateModal(true);
               }}
             />
-
           </div>
-
         </div>
 
         <AddManagerModal
@@ -544,18 +559,27 @@ export default function Home() {
           onClose={() => setShowAddModal(false)}
           onAdd={handleAddManager}
         />
-
+ {/* Toast - OUTSIDE modal condition */}
+      {toast.show && (
+        <div className="fixed top-20 left-1/2 transform -translate-x-1/2 z-[9999]">
+          <div className="bg-red-500 w-70 sm:w-80 text-sm text-center text-white px-6 py-3 rounded-lg shadow-lg lg:text-base font-medium transition-opacity duration-300">
+            {toast.message}
+          </div>
+        </div>
+      )}
         <ConfirmDeleteModal
           isOpen={showDeleteModal}
+          
           onClose={() => setShowDeleteModal(false)}
           onConfirm={handleDeleteManager}
+          
         />
 
         <UpdateManagerModal
           isOpen={showUpdateModal}
           onClose={() => setShowUpdateModal(false)}
           onUpdate={handleUpdateManager}
-          manager={managers[selectedIndex]}
+          manager={selectedManager}
         />
       </div>
     </div>

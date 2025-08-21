@@ -248,7 +248,7 @@ export default function ReportCharts({ managers, dateFilter }) {
                     fill={COLORS[index]}
                     stroke="none"
                   />
-                ))}
+                ))} 
               </Pie>
             ) : (
               <Pie

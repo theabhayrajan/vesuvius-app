@@ -2,12 +2,13 @@
 import { useState, useRef, useEffect } from "react";
 import TopNavbar from "@/app/(Dashboard)/components/Navbar";
 import Sidebar from "@/app/(Dashboard)/components/Sidebar";
-import DashboardCards from "@/app/(Dashboard)/components/DashboardCards";
-import ManagerTable from "@/app/(Dashboard)/components/ManagerTable";
+import DashboardCards from "@/app/(Dashboard)/dashboard/DashboardCards";
+import ManagerTable from "@/app/(Dashboard)/dashboard/ManagerTable";
 import AddManagerModal from "@/app/(Dashboard)/components/AddManagerModal";
 import ConfirmDeleteModal from "@/app/(Dashboard)/components/ConfirmDeleteModal";
 import UpdateManagerModal from "@/app/(Dashboard)/components/UpdateManagerModal";
-import ReportCharts from "@/app/(Dashboard)/components/ReportCharts";
+import ReportCharts from "@/app/(Dashboard)/dashboard/ReportCharts";
+// import { SidebarProvider, DashboardSidebar, DashboardNavbar } from "@/app/(Dashboard)/components/DashboardShell";
 
 export default function Home() {
   const [showAddModal, setShowAddModal] = useState(false);
@@ -623,11 +624,13 @@ const parseDate = (str) => {
 
 
   return (
+        // <SidebarProvider>
     <div className="flex flex-col md:flex-row min-h-screen">
       <Sidebar isMobileOpen={isMobileOpen} setIsMobileOpen={setIsMobileOpen} />
-
+        {/* <DashboardSidebar /> */}
       <div className="flex-1 h-screen overflow-y-auto bg-white px-4 md:px-6 py-6">
         <TopNavbar onHamburgerClick={() => setIsMobileOpen(true)} />
+         {/* <DashboardNavbar /> */}
         <div className="max-w-9xl mx-auto bg-[#f3f5f9] rounded-3xl p-6 space-y-6 shadow-sm">
           <DashboardCards managers={filteredManagers} setDateFilter={setDateFilter} dateFilter={dateFilter} />
         <ReportCharts managers={filteredManagers} dateFilter={dateFilter} />
@@ -677,5 +680,6 @@ const parseDate = (str) => {
         />
       </div>
     </div>
+      // </SidebarProvider>
   );
 }

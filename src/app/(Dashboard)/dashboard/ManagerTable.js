@@ -25,7 +25,29 @@ export default function ManagerTable({
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  // ✅ Reset to first page when any filter or parent managers change
+  // Month normalization map
+const monthMap = {
+  january: "january", jan: "january", jan:"jan", january:"jan",
+  february: "february", feb: "february", feb:"feb", february:"feb",
+  march: "march", mar: "march", mar:"mar", march:"mar",
+  april: "april", apr: "april", apr:"apr", april:"apr",
+  may: "may",
+  june: "june", jun: "june", jun:"jun", june:"jun",
+  july: "july", jul: "july", jul:"jul", july:"jul",
+  august: "august", aug: "august", aug:"aug", august:"aug",
+  september: "september", sep: "september", sept: "september", sep:"sep", september:"sep", sept:"sep",
+  october: "october", oct: "october", oct:"oct", october:"oct",
+  november: "november", nov: "november", nov:"nov", november:"nov",
+  december: "december", dec: "december", dec:"dec",
+};
+
+// Function to normalize text
+function normalizeMonth(str) {
+  if (!str) return "";
+  const lower = str.toLowerCase();
+  return monthMap[lower] || lower;
+}
+
   useEffect(() => {
     setCurrentPage(1);
   }, [searchQuery, filterStatus, sortLocation, managers]);
@@ -34,7 +56,7 @@ export default function ManagerTable({
     .filter((m) =>
       (m.name || "").toLowerCase().includes(searchQuery.trim().toLowerCase()) ||
       (m.contact || "").toLowerCase().includes(searchQuery.trim().toLowerCase()) ||
-      (m.date || "").toLowerCase().includes(searchQuery.trim().toLowerCase()) ||
+       normalizeMonth(m.date || "").includes(normalizeMonth(searchQuery.trim().toLowerCase())) ||
       (m.machine || "").toLowerCase().includes(searchQuery.trim().toLowerCase()) ||
       (m.client || "").toLowerCase().includes(searchQuery.trim().toLowerCase()) ||
       (m.location || "").toLowerCase().includes(searchQuery.trim().toLowerCase())

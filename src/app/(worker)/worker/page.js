@@ -19,10 +19,10 @@ export default function Home() {
         <TopNavbar onHamburgerClick={() => setIsMobileOpen(true)} />
           <div className="max-w-[80vw] mx-auto bg-white rounded-2xl shadow-2xl p-8 text-center mt-40">
             <h2 className="text-xl md:text-2xl font-semibold text-gray-800">
-              Client Page
+              Worker Page
             </h2>
             <p className="mt-2 text-gray-600">
-              This is the Clent Dashboard page
+              This is the Worker Dashboard page
             </p>
             <Link
               href="/"

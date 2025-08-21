@@ -11,7 +11,7 @@ const navItems = [
   { label: 'Worker', path: '/worker' },
   { label: 'Manager', path: '/manager' },
   { label: 'Alerts', path: '/alerts' },
-  { label: 'Access & Security', path: '/access-security' },
+  { label: 'Access & Security', path: '/security' },
   { label: 'Settings', path: '/settings' },
 ];
 

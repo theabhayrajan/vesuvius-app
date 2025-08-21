@@ -1,5 +1,5 @@
 "use client";
-import Home from "../page"; // reuse dashboard
+import Home from "../(Dashboard)/page"; // reuse dashboard
 
 export default function CatchAllPage() {
   return <Home />;

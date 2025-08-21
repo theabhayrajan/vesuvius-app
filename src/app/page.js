@@ -25,7 +25,7 @@ export default function Home() {
     workers: 4,
     report: "Pending",
     machine: "Not Assign",
-    date: "04 Apr'24",
+    date: "04 Apr 2024",
   },
   {
     name: "Abhishek",
@@ -35,7 +35,7 @@ export default function Home() {
     workers: 3,
     report: "Done",
     machine: "Assign",
-    date: "12 Mar'24",
+    date: "12 Mar 2024",
   },
   {
     name: "Sneha",
@@ -45,7 +45,7 @@ export default function Home() {
     workers: 5,
     report: "Pending",
     machine: "Assign",
-    date: "25 May'24",
+    date: "25 May 2024",
   },
   {
     name: "Ravi",
@@ -55,7 +55,7 @@ export default function Home() {
     workers: 2,
     report: "Done",
     machine: "Not Assign",
-    date: "17 Feb'24",
+    date: "17 Feb 2024",
   },
   {
     name: "Pooja",
@@ -65,7 +65,7 @@ export default function Home() {
     workers: 6,
     report: "Pending",
     machine: "Assign",
-    date: "30 Jun'24",
+    date: "30 Jun 2024",
   },
   {
     name: "Vikas",
@@ -75,7 +75,7 @@ export default function Home() {
     workers: 3,
     report: "Done",
     machine: "Assign",
-    date: "10 Jan'24",
+    date: "10 Jan 2024",
   },
   {
     name: "Kiran",
@@ -85,7 +85,7 @@ export default function Home() {
     workers: 1,
     report: "Pending",
     machine: "Not Assign",
-    date: "05 May'24",
+    date: "05 May 2024",
   },
   {
     name: "Manoj",
@@ -95,7 +95,7 @@ export default function Home() {
     workers: 4,
     report: "Done",
     machine: "Assign",
-    date: "20 Apr'24",
+    date: "20 Apr 2024",
   },
   {
     name: "Divya",
@@ -105,7 +105,7 @@ export default function Home() {
     workers: 2,
     report: "Pending",
     machine: "Not Assign",
-    date: "15 Aug'24",
+    date: "15 Aug 2024",
   },
   {
     name: "Sandeep",
@@ -115,7 +115,7 @@ export default function Home() {
     workers: 5,
     report: "Done",
     machine: "Assign",
-    date: "08 Jul'24",
+    date: "08 Jul 2024",
   },
   {
     name: "Priya",
@@ -125,7 +125,7 @@ export default function Home() {
     workers: 3,
     report: "Pending",
     machine: "Assign",
-    date: "14 Sep'24",
+    date: "14 Sep 2024",
   },
   {
     name: "Amit",
@@ -135,7 +135,7 @@ export default function Home() {
     workers: 6,
     report: "Done",
     machine: "Assign",
-    date: "28 Nov'24",
+    date: "28 Nov 2024",
   },
   {
     name: "Neha",
@@ -145,7 +145,7 @@ export default function Home() {
     workers: 4,
     report: "Pending",
     machine: "Not Assign",
-    date: "19 Dec'24",
+    date: "19 Dec 2024",
   },
   {
     name: "Kunal",
@@ -155,7 +155,7 @@ export default function Home() {
     workers: 2,
     report: "Done",
     machine: "Assign",
-    date: "01 Feb'24",
+    date: "01 Feb 2024",
   },
   {
     name: "Meera",
@@ -165,7 +165,7 @@ export default function Home() {
     workers: 3,
     report: "Pending",
     machine: "Assign",
-    date: "22 Mar'24",
+    date: "22 Mar 2024",
   },
   {
     name: "Arjun",
@@ -175,7 +175,7 @@ export default function Home() {
     workers: 5,
     report: "Done",
     machine: "Not Assign",
-    date: "03 May'24",
+    date: "03 May 2024",
   },
   {
     name: "Simran",
@@ -185,7 +185,7 @@ export default function Home() {
     workers: 4,
     report: "Pending",
     machine: "Assign",
-    date: "29 Jun'24",
+    date: "29 Jun 2024",
   },
   {
     name: "Nitin",
@@ -195,7 +195,7 @@ export default function Home() {
     workers: 1,
     report: "Done",
     machine: "Assign",
-    date: "11 Jul'24",
+    date: "11 Jul 2024",
   },
   {
     name: "Shreya",
@@ -205,7 +205,7 @@ export default function Home() {
     workers: 3,
     report: "Pending",
     machine: "Not Assign",
-    date: "17 Aug'24",
+    date: "17 Aug 2024",
   },
   {
     name: "Deepak",
@@ -215,7 +215,7 @@ export default function Home() {
     workers: 6,
     report: "Done",
     machine: "Assign",
-    date: "21 Sep'24",
+    date: "21 Sep 2024",
   },
   {
     name: "Isha",
@@ -225,7 +225,7 @@ export default function Home() {
     workers: 2,
     report: "Pending",
     machine: "Not Assign",
-    date: "15 Jan'24",
+    date: "15 Jan 2024",
   },
   {
     name: "Lokesh",
@@ -235,7 +235,7 @@ export default function Home() {
     workers: 5,
     report: "Done",
     machine: "Assign",
-    date: "26 Feb'24",
+    date: "26 Feb 2024",
   },
   {
     name: "Rohit",
@@ -245,7 +245,7 @@ export default function Home() {
     workers: 3,
     report: "Pending",
     machine: "Assign",
-    date: "02 Apr'24",
+    date: "02 Apr 2024",
   },
   {
     name: "Ananya",
@@ -255,7 +255,7 @@ export default function Home() {
     workers: 4,
     report: "Done",
     machine: "Not Assign",
-    date: "19 Apr'24",
+    date: "19 Apr 2024",
   },
   {
     name: "Sahil",
@@ -265,7 +265,7 @@ export default function Home() {
     workers: 2,
     report: "Pending",
     machine: "Not Assign",
-    date: "28 May'24",
+    date: "28 May 2024",
   },
   {
     name: "Tanya",
@@ -275,7 +275,7 @@ export default function Home() {
     workers: 6,
     report: "Done",
     machine: "Assign",
-    date: "05 Jun'24",
+    date: "05 Jun 2024",
   },
   {
     name: "Kartik",
@@ -285,7 +285,7 @@ export default function Home() {
     workers: 3,
     report: "Pending",
     machine: "Assign",
-    date: "14 Jul'24",
+    date: "14 Jul 2024",
   },
   {
     name: "Aarav",
@@ -295,7 +295,7 @@ export default function Home() {
     workers: 1,
     report: "Done",
     machine: "Not Assign",
-    date: "20 Aug'24",
+    date: "20 Aug 2024",
   },
   {
     name: "Vidya",
@@ -305,7 +305,7 @@ export default function Home() {
     workers: 4,
     report: "Pending",
     machine: "Assign",
-    date: "29 Aug'24",
+    date: "29 Aug 2024",
   },
   {
     name: "Jay",
@@ -315,7 +315,7 @@ export default function Home() {
     workers: 2,
     report: "Done",
     machine: "Assign",
-    date: "10 Sep'24",
+    date: "10 Sep 2024",
   },
   {
     name: "Swati",
@@ -325,7 +325,7 @@ export default function Home() {
     workers: 5,
     report: "Pending",
     machine: "Not Assign",
-    date: "15 Oct'24",
+    date: "15 Oct 2024",
   },
   {
     name: "Harshit",
@@ -335,7 +335,7 @@ export default function Home() {
     workers: 3,
     report: "Done",
     machine: "Assign",
-    date: "21 Oct'24",
+    date: "21 Oct 2024",
   },
   {
     name: "Monika",
@@ -345,7 +345,7 @@ export default function Home() {
     workers: 4,
     report: "Pending",
     machine: "Assign",
-    date: "30 Oct'24",
+    date: "30 Oct 2024",
   },
   {
     name: "Aniket",
@@ -355,7 +355,7 @@ export default function Home() {
     workers: 6,
     report: "Done",
     machine: "Assign",
-    date: "04 Nov'24",
+    date: "04 Nov 2024",
   },
   {
     name: "Bhavna",
@@ -365,7 +365,7 @@ export default function Home() {
     workers: 2,
     report: "Pending",
     machine: "Not Assign",
-    date: "12 Nov'24",
+    date: "12 Nov 2024",
   },
   {
     name: "Raj",
@@ -375,7 +375,7 @@ export default function Home() {
     workers: 3,
     report: "Done",
     machine: "Assign",
-    date: "18 Nov'24",
+    date: "18 Nov 2024",
   },
   {
     name: "Krishna",
@@ -385,7 +385,7 @@ export default function Home() {
     workers: 5,
     report: "Pending",
     machine: "Assign",
-    date: "22 Nov'24",
+    date: "22 Nov 2024",
   },
   {
     name: "Geeta",
@@ -395,7 +395,7 @@ export default function Home() {
     workers: 4,
     report: "Done",
     machine: "Not Assign",
-    date: "25 Nov'24",
+    date: "25 Nov 2024",
   },
   {
     name: "Omkar",
@@ -405,7 +405,7 @@ export default function Home() {
     workers: 2,
     report: "Pending",
     machine: "Assign",
-    date: "01 Dec'24",
+    date: "01 Dec 2024",
   },
   {
     name: "Ramesh",
@@ -415,7 +415,7 @@ export default function Home() {
     workers: 1,
     report: "Done",
     machine: "Not Assign",
-    date: "05 Dec'24",
+    date: "05 Dec 2024",
   },
   {
     name: "Shivani",
@@ -425,7 +425,7 @@ export default function Home() {
     workers: 3,
     report: "Pending",
     machine: "Assign",
-    date: "10 Dec'24",
+    date: "10 Dec 2024",
   },
   {
     name: "Pankaj",
@@ -435,7 +435,7 @@ export default function Home() {
     workers: 6,
     report: "Done",
     machine: "Assign",
-    date: "15 Dec'24",
+    date: "15 Dec 2024",
   },
   {
     name: "Chirag",
@@ -445,7 +445,7 @@ export default function Home() {
     workers: 4,
     report: "Pending",
     machine: "Not Assign",
-    date: "20 Dec'24",
+    date: "20 Dec 2024",
   },
   {
     name: "Lata",
@@ -455,7 +455,7 @@ export default function Home() {
     workers: 5,
     report: "Done",
     machine: "Assign",
-    date: "22 Dec'24",
+    date: "22 Dec 2024",
   },
   {
     name: "Manish",
@@ -465,7 +465,7 @@ export default function Home() {
     workers: 3,
     report: "Pending",
     machine: "Assign",
-    date: "27 Dec'24",
+    date: "27 Dec 2024",
   },
   {
     name: "Tanvi",
@@ -475,7 +475,7 @@ export default function Home() {
     workers: 2,
     report: "Done",
     machine: "Not Assign",
-    date: "29 Dec'24",
+    date: "29 Dec 2024",
   },
   {
     name: "Sameer",
@@ -485,11 +485,103 @@ export default function Home() {
     workers: 4,
     report: "Pending",
     machine: "Assign",
-    date: "31 Dec'24",
+    date: "31 Dec 2024",
   },
 ]);
   const [toast, setToast] = useState({ show: false, message: "" });
   const toastTimerRef = useRef(null);
+
+
+   const [dateFilter, setDateFilter] = useState("All"); // ⬅️ NEW
+
+// helper: parse "04 Nov 2025", "04 November 2025", "04 APR 2024", etc.
+const parseDate = (str) => {
+  if (!str) return null;
+
+  // Remove apostrophes (e.g., "Apr 2024" → "Apr 24")
+  str = str.replace("'", "");
+
+  const parts = str.trim().split(/\s+/); // split by spaces
+  if (parts.length < 3) return null;
+
+  const [day, monRaw, yearRaw] = parts;
+  const d = parseInt(day, 10);
+
+  // Map short + full month names to numbers (case-insensitive)
+  const monthMap = {
+    jan: 0, january: 0,
+    feb: 1, february: 1,
+    mar: 2, march: 2,
+    apr: 3, april: 3,
+    may: 4,
+    jun: 5, june: 5,
+    jul: 6, july: 6,
+    aug: 7, august: 7,
+    sep: 8, sept: 8, september: 8,
+    oct: 9, october: 9,
+    nov: 10, november: 10,
+    dec: 11, december: 11,
+  };
+
+  // normalize month input (lowercase)
+  const monKey = monRaw.toLowerCase();
+  const m = monthMap[monKey];
+  if (m === undefined) return null;
+
+  // Handle 2-digit vs 4-digit year
+  const y = yearRaw.length === 2 ? parseInt("20" + yearRaw, 10) : parseInt(yearRaw, 10);
+
+  return new Date(y, m, d);
+};
+
+
+
+  // ✅ filter managers by selected dateFilter
+  const getFilteredManagers = () => {
+    const now = new Date();
+    return managers.filter((m) => {
+      const d = parseDate(m.date);
+      if (!d) return false;
+
+      switch (dateFilter) {
+        case "Today":
+          return d.toDateString() === now.toDateString();
+        case "Yesterday":
+          const y = new Date(now);
+          y.setDate(now.getDate() - 1);
+          return d.toDateString() === y.toDateString();
+        case "Last 7 Days":
+          const last7 = new Date(now);
+          last7.setDate(now.getDate() - 7);
+          return d >= last7 && d <= now;
+        case "Last 15 Days":
+          const last15 = new Date(now);
+          last15.setDate(now.getDate() - 15);
+          return d >= last15 && d <= now;
+        case "This Month":
+          return d.getMonth() === now.getMonth() && d.getFullYear() === now.getFullYear();
+        case "Last Month":
+          const lastMonth = new Date(now.getFullYear(), now.getMonth() - 1, 1);
+          return d.getMonth() === lastMonth.getMonth() && d.getFullYear() === lastMonth.getFullYear();
+        case "Last 3 Month":
+          const last3 = new Date(now);
+          last3.setMonth(now.getMonth() - 3);
+          return d >= last3 && d <= now;
+        case "Last 6 Month":
+          const last6 = new Date(now);
+          last6.setMonth(now.getMonth() - 6);
+          return d >= last6 && d <= now;
+           case "This Year":
+         return d.getFullYear() === now.getFullYear();
+        case "Last Year":
+          return d.getFullYear() === now.getFullYear() - 1;
+        default:
+          return true;
+      }
+    });
+  };
+
+  const filteredManagers = getFilteredManagers();
 
   useEffect(() => {
     return () => {
@@ -508,7 +600,7 @@ export default function Home() {
  
 
  const handleAddManager = (newManager) => {
-    setManagers([...managers, newManager]);
+    setManagers([newManager, ...managers]);
     setShowAddModal(false);
   };
 
@@ -519,15 +611,16 @@ export default function Home() {
      showToast("Record Deleted successfully!");
   };
 
-  const handleUpdateManager = (updatedManager) => {
-    if (!selectedManager) return;
-    setManagers(
-      managers.map((m) =>
-        m === selectedManager ? updatedManager : m
-      )
-    );
-    setShowUpdateModal(false);
-  };
+ const handleUpdateManager = (updatedManager) => {
+  if (!selectedManager) return;
+  setManagers(
+    managers.map((m) =>
+      m === selectedManager ? { ...m, ...updatedManager } : m
+    )
+  );
+  setShowUpdateModal(false);
+};
+
 
   return (
     <div className="flex flex-col md:flex-row min-h-screen">
@@ -536,11 +629,12 @@ export default function Home() {
       <div className="flex-1 h-screen overflow-y-auto bg-white px-4 md:px-6 py-6">
         <TopNavbar onHamburgerClick={() => setIsMobileOpen(true)} />
         <div className="max-w-9xl mx-auto bg-[#f3f5f9] rounded-3xl p-6 space-y-6 shadow-sm">
-          <DashboardCards managers={managers} />
-          <ReportCharts managers={managers} />
+          <DashboardCards managers={filteredManagers} setDateFilter={setDateFilter} dateFilter={dateFilter} />
+        <ReportCharts managers={filteredManagers} dateFilter={dateFilter} />
+
           <div className="max-w-[80vw] mx-auto bg-white rounded-2xl">
             <ManagerTable
-              managers={managers}
+              managers={filteredManagers}
               onAddClick={() => setShowAddModal(true)}
               onDeleteClick={(manager) => {
                 setSelectedManager(manager);

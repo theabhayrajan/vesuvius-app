@@ -15,7 +15,7 @@ export default function Navbar({ onHamburgerClick }) {
           alt="User"
           className="w-10 h-10 rounded-full"
         />
-        <div className="text-xl font-semibold">vesuvius india pvt ltd</div>
+        <div className="text-lg font-semibold">vesuvius india pvt ltd</div>
       </div>
 
       {/* Right Side Controls: Hamburger, Search, Bell, Avatar */}

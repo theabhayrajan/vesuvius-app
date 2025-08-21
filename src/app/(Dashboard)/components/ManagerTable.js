@@ -25,30 +25,26 @@ export default function ManagerTable({
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  // ✅ Reset to first page when any filter or parent managers change
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [searchQuery, filterStatus, sortLocation, managers]);
 
-// Reset to first page when search/filter changes
-useEffect(() => {
-  setCurrentPage(1);
-}, [searchQuery, filterStatus, sortLocation]);
-
-const filteredManagers = managers
-
-  .filter((m) =>
-    (m.name || "").toLowerCase().includes(searchQuery.trim().toLowerCase()) ||
-    (m.contact || "").toLowerCase().includes(searchQuery.trim().toLowerCase()) ||
-    (m.date || "").toLowerCase().includes(searchQuery.trim().toLowerCase()) ||
-    (m.machine || "").toLowerCase().includes(searchQuery.trim().toLowerCase()) ||
-    (m.location || "").toLowerCase().includes(searchQuery.trim().toLowerCase())
-  )
- 
-  .filter((m) => filterStatus === "All" ? true : m.report === filterStatus)
-
-  .filter((m) =>
-    sortLocation === "All"
-      ? true
-      : (m.location || "").toLowerCase() === sortLocation.toLowerCase()
-  );
-
+  const filteredManagers = managers
+    .filter((m) =>
+      (m.name || "").toLowerCase().includes(searchQuery.trim().toLowerCase()) ||
+      (m.contact || "").toLowerCase().includes(searchQuery.trim().toLowerCase()) ||
+      (m.date || "").toLowerCase().includes(searchQuery.trim().toLowerCase()) ||
+      (m.machine || "").toLowerCase().includes(searchQuery.trim().toLowerCase()) ||
+      (m.client || "").toLowerCase().includes(searchQuery.trim().toLowerCase()) ||
+      (m.location || "").toLowerCase().includes(searchQuery.trim().toLowerCase())
+    )
+    .filter((m) => filterStatus === "All" ? true : m.report === filterStatus)
+    .filter((m) =>
+      sortLocation === "All"
+        ? true
+        : (m.location || "").toLowerCase() === sortLocation.toLowerCase()
+    );
 
   // Pagination logic
   const indexOfLastRow = currentPage * rowsPerPage;
@@ -64,8 +60,10 @@ const filteredManagers = managers
     let startPage = Math.max(currentPage - 2, 1);
     let endPage = Math.min(currentPage + 2, totalPages);
 
-    if (startPage > 1) pages.push(<button key="1" onClick={() => paginate(1)} className="px-4 py-2 rounded-md">1</button>);
-    if (startPage > 2) pages.push(<span key="ellipsis-start" className="px-4 py-2">...</span>);
+    if (startPage > 1)
+      pages.push(<button key="1" onClick={() => paginate(1)} className="px-4 py-2 rounded-md">1</button>);
+    if (startPage > 2)
+      pages.push(<span key="ellipsis-start" className="px-4 py-2">...</span>);
 
     for (let i = startPage; i <= endPage; i++) {
       pages.push(
@@ -79,10 +77,12 @@ const filteredManagers = managers
       );
     }
 
-    if (endPage < totalPages - 1) pages.push(<span key="ellipsis-end" className="px-4 py-2">...</span>);
-    if (endPage < totalPages) pages.push(
-      <button key={totalPages} onClick={() => paginate(totalPages)} className="px-4 py-2 rounded-md">{totalPages}</button>
-    );
+    if (endPage < totalPages - 1)
+      pages.push(<span key="ellipsis-end" className="px-4 py-2">...</span>);
+    if (endPage < totalPages)
+      pages.push(
+        <button key={totalPages} onClick={() => paginate(totalPages)} className="px-4 py-2 rounded-md">{totalPages}</button>
+      );
 
     return pages;
   };
@@ -161,62 +161,67 @@ const filteredManagers = managers
               <th className="px-4 py-3 whitespace-nowrap text-center">Action</th>
             </tr>
           </thead>
-          <tbody>
-            {currentRows.map((m, i) => {
-              const globalIndex = indexOfFirstRow + i; // ✅ FIX: global index
-              return (
-                <tr key={globalIndex} className="hover:bg-gray-50 border-b border-gray-200">
-                  <td className="px-4 py-4 font-medium whitespace-nowrap">{m.name}</td>
-                  <td className="px-4 py-4 font-semibold whitespace-nowrap">{m.contact}</td>
-                  <td className="px-4 py-4 whitespace-nowrap text-sm">
-                    {m.client}
-                    <div className="text-xs text-gray-400">{m.location}</div>
-                  </td>
-
-                  <td className="px-4 py-4 font-bold text-center whitespace-nowrap">{m.workers}</td>
-                  <td className="px-4 py-4 whitespace-nowrap">
-                    <span className={`px-2 py-1 rounded-md text-white text-xs ${m.report === "Done" ? "bg-[#07bf99]" : "bg-[#c13320]"}`}>{m.report}</span>
-                  </td>
-                  <td className="px-4 py-4 whitespace-nowrap">
-                    <span className={`inline-block px-2 py-1 rounded-md text-white text-xs text-center min-w-[75px] ${m.machine === "Assign" ? "bg-[#07bf99]" : "bg-[#c13320]"}`}>{m.machine}</span>
-                  </td>
-                  <td className="px-4 py-4 whitespace-nowrap">{m.date}</td>
-                  <td className="px-4 py-4 text-center relative">
-                    <button
-                      className="hover:bg-gray-200 cursor-pointer rounded-full w-8 h-8 flex items-center justify-center"
-                      onClick={() => setMenuIndex(i === menuIndex ? null : i)}
-                    >
-                      ⋮
-                    </button>
-                    {menuIndex === i && (
-                      <div
-                        ref={menuRef}
-                        className="absolute z-50 right-0 -top-2 w-30  bg-white border border-gray-200 rounded shadow-md"
+            <tbody>
+            {currentRows.length > 0 ? (
+              currentRows.map((m, i) => {
+                const globalIndex = indexOfFirstRow + i;
+                return (
+                  <tr key={globalIndex} className="hover:bg-gray-50 border-b border-gray-200">
+                    <td className="px-4 py-4 font-medium whitespace-nowrap">{m.name}</td>
+                    <td className="px-4 py-4 font-semibold whitespace-nowrap">{m.contact}</td>
+                    <td className="px-4 py-4 whitespace-nowrap text-sm">
+                      {m.client}
+                      <div className="text-xs text-gray-400">{m.location}</div>
+                    </td>
+                    <td className="px-4 py-4 font-bold text-center whitespace-nowrap">{m.workers}</td>
+                    <td className="px-4 py-4 whitespace-nowrap">
+                      <span className={`px-2 py-1 rounded-md text-white text-xs ${m.report === "Done" ? "bg-[#07bf99]" : "bg-[#c13320]"}`}>{m.report}</span>
+                    </td>
+                    <td className="px-4 py-4 whitespace-nowrap">
+                      <span className={`inline-block px-2 py-1 rounded-md text-white text-xs min-w-[75px] text-center ${m.machine === "Assign" ? "bg-[#07bf99]" : "bg-[#c13320]"}`}>{m.machine}</span>
+                    </td>
+                    <td className="px-4 py-4 whitespace-nowrap">{m.date}</td>
+                    <td className="px-4 py-4 text-center relative">
+                      <button
+                        className="hover:bg-gray-200 cursor-pointer rounded-full w-8 h-8 flex items-center justify-center"
+                        onClick={() => setMenuIndex(i === menuIndex ? null : i)}
                       >
-                        <button
-                          onClick={() => {
-                            setMenuIndex(null);
-                            onUpdateClick(m); 
-                          }}
-                          className="w-full text-left px-4 py-2 hover:bg-gray-100 cursor-pointer text-sm"
+                        ⋮
+                      </button>
+                      {menuIndex === i && (
+                        <div
+                          ref={menuRef}
+                          className="absolute z-50 right-0 -top-2 w-30 bg-white border border-gray-200 rounded shadow-md"
                         >
-                          Update
-                        </button>
-                        <button
-                          onClick={() => {
-                            setMenuIndex(null);
-                            onDeleteClick(m); 
-                          }}
-                          className="w-full text-left px-4 py-2 hover:bg-gray-100 text-red-600 cursor-pointer text-sm"
-                        >
-                          Delete
-                        </button>
-                      </div>
-                    )}
-                  </td>
-                </tr>
-              );
-            })}
+                          <button
+                            onClick={() => {
+                              setMenuIndex(null);
+                              onUpdateClick(m);
+                            }}
+                            className="w-full text-left px-4 py-2 hover:bg-gray-100 text-sm"
+                          >
+                            Update
+                          </button>
+                          <button
+                            onClick={() => {
+                              setMenuIndex(null);
+                              onDeleteClick(m);
+                            }}
+                            className="w-full text-left px-4 py-2 hover:bg-gray-100 text-red-600 text-sm"
+                          >
+                            Delete
+                          </button>
+                        </div>
+                      )}
+                    </td>
+                  </tr>
+                );
+              })
+            ) : (
+              <tr>
+                <td colSpan="8" className="text-center p-4 text-gray-500">🚫 No records found</td>
+              </tr>
+            )}
           </tbody>
         </table>
       </div>

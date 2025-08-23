@@ -27,7 +27,7 @@ const [clients, setClients]= useState([
     workers: 4,
     managers: "Yash",
     machine: "Not Assign",
-    date: "04 Apr 2024",
+    date: "04 Apr 2025",
   },
   {
     name: "Rajesh Kumar",
@@ -37,7 +37,7 @@ const [clients, setClients]= useState([
     workers: 3,
     managers: "Abhishek",
     machine: "Assign",
-    date: "12 Mar 2024",
+    date: "12 Mar 2025",
   },
   {
     name: "Anil Sharma",
@@ -47,7 +47,7 @@ const [clients, setClients]= useState([
     workers: 5,
     managers: "Sneha",
     machine: "Assign",
-    date: "25 May 2024",
+    date: "25 May 2025",
   },
   {
     name: "Sunita Devi",
@@ -57,7 +57,7 @@ const [clients, setClients]= useState([
     workers: 2,
     managers: "Ravi",
     machine: "Not Assign",
-    date: "17 Feb 2024",
+    date: "17 Feb 2025",
   },
   {
     name: "Ramesh Gupta",
@@ -67,7 +67,7 @@ const [clients, setClients]= useState([
     workers: 6,
     managers: "Pooja",
     machine: "Assign",
-    date: "30 Jun 2024",
+    date: "30 Jun 2025",
   },
   {
     name: "Suresh Yadav",
@@ -77,7 +77,7 @@ const [clients, setClients]= useState([
     workers: 3,
     managers: "Vikas",
     machine: "Assign",
-    date: "10 Jan 2024",
+    date: "10 Jan 2025",
   },
   {
     name: "Ajay Mehta",
@@ -87,7 +87,7 @@ const [clients, setClients]= useState([
     workers: 1,
     managers: "Kiran",
     machine: "Not Assign",
-    date: "05 May 2024",
+    date: "05 May 2025",
   },
   {
     name: "Vijay Kumar",
@@ -97,7 +97,7 @@ const [clients, setClients]= useState([
     workers: 4,
     managers: "Manoj",
     machine: "Assign",
-    date: "20 Apr 2024",
+    date: "20 Apr 2025",
   },
   {
     name: "Arun Sharma",
@@ -107,7 +107,7 @@ const [clients, setClients]= useState([
     workers: 2,
     managers: "Divya",
     machine: "Not Assign",
-    date: "15 Aug 2024",
+    date: "15 Aug 2025",
   },
   {
     name: "Mahesh Patil",
@@ -117,7 +117,7 @@ const [clients, setClients]= useState([
     workers: 5,
     managers: "Sandeep",
     machine: "Assign",
-    date: "08 Jul 2024",
+    date: "08 Jul 2025",
   },
   {
     name: "Anita Singh",
@@ -127,7 +127,7 @@ const [clients, setClients]= useState([
     workers: 3,
     managers: "Priya",
     machine: "Assign",
-    date: "14 Sep 2024",
+    date: "14 Sep 2025",
   },
   {
     name: "Deepak Joshi",
@@ -137,7 +137,7 @@ const [clients, setClients]= useState([
     workers: 6,
     managers: "Amit",
     machine: "Assign",
-    date: "28 Nov 2024",
+    date: "28 Nov 2025",
   },
   {
     name: "Rekha Verma",
@@ -147,7 +147,7 @@ const [clients, setClients]= useState([
     workers: 4,
     managers: "Neha",
     machine: "Not Assign",
-    date: "19 Dec 2024",
+    date: "19 Dec 2025",
   },
   {
     name: "Harish Chandra",
@@ -157,7 +157,7 @@ const [clients, setClients]= useState([
     workers: 2,
     managers: "Kunal",
     machine: "Assign",
-    date: "01 Feb 2024",
+    date: "01 Feb 2025",
   },
   {
     name: "Sanjay Sinha",
@@ -167,7 +167,7 @@ const [clients, setClients]= useState([
     workers: 3,
     managers: "Meera",
     machine: "Assign",
-    date: "22 Mar 2024",
+    date: "22 Mar 2025",
   },
   {
     name: "Ravi Prasad",
@@ -177,7 +177,7 @@ const [clients, setClients]= useState([
     workers: 5,
     managers: "Arjun",
     machine: "Not Assign",
-    date: "03 May 2024",
+    date: "03 May 2025",
   },
   {
     name: "Shashi Kiran",
@@ -187,7 +187,7 @@ const [clients, setClients]= useState([
     workers: 4,
     managers: "Simran",
     machine: "Assign",
-    date: "29 Jun 2024",
+    date: "29 Jun 2025",
   },
   {
     name: "Vimal Singh",
@@ -197,7 +197,7 @@ const [clients, setClients]= useState([
     workers: 1,
     managers: "Nitin",
     machine: "Assign",
-    date: "11 Jul 2024",
+    date: "11 Jul 2025",
   },
   {
     name: "Rohit Bansal",
@@ -207,7 +207,7 @@ const [clients, setClients]= useState([
     workers: 3,
     managers: "Shreya",
     machine: "Not Assign",
-    date: "17 Aug 2024",
+    date: "17 Aug 2025",
   },
   {
     name: "Amit Kapoor",
@@ -217,7 +217,7 @@ const [clients, setClients]= useState([
     workers: 6,
     managers: "Deepak",
     machine: "Assign",
-    date: "21 Sep 2024",
+    date: "21 Sep 2025",
   },
 ]);
 
@@ -229,11 +229,11 @@ const [clients, setClients]= useState([
 
   const [dateFilter, setDateFilter] = useState("All"); // ⬅️ NEW
 
-  // helper: parse "04 Nov 2025", "04 November 2025", "04 APR 2024", etc.
+  // helper: parse "04 Nov 2025", "04 November 2025", "04 APR 2025", etc.
   const parseDate = (str) => {
     if (!str) return null;
 
-    // Remove apostrophes (e.g., "Apr 2024" → "Apr 24")
+    // Remove apostrophes (e.g., "Apr 2025" → "Apr 24")
     str = str.replace("'", "");
 
     const parts = str.trim().split(/\s+/); // split by spaces

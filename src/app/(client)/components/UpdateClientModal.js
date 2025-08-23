@@ -34,12 +34,8 @@ const clientSchema = z.object({
     .string()
     .min(1, "Managers Name is required")
     .regex(/^[A-Za-z\s]+$/, "Name can only contain letters and spaces"),
-  workers: z
-    .string()
-    .min(1, { message: "Workers is required" })
-    .refine((val) => parseInt(val) > 0, {
-      message: "Workers must be greater than 0",
-    }),
+  workers: z.coerce.number()
+    .min(1, { message: "Workers must be greater than 0" }),
 
   machine: z.enum(["Assign", "Not Assign"], {
     errorMap: () => ({ message: "Machine status is required" }),

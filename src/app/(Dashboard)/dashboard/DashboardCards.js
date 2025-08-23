@@ -8,7 +8,7 @@ export default function DashboardCards({ managers, setDateFilter, dateFilter }) 
   const [totalSubmitted, setTotalSubmitted] = useState(0);
   const [totalApproved, setTotalApproved] = useState(0);
   const [totalWorkers, setTotalWorkers] = useState(0);
-  const [totalClients, setTotalClients] = useState(0);
+  const [totalClients, setTotalClients] = useState(0);  
 
   useEffect(() => {
     if (!managers || managers.length === 0) {

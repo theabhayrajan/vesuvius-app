@@ -63,7 +63,9 @@ export default function ReportCharts({ managers, dateFilter }) {
       const d = new Date(m.date);
       let key = "";
 
-      if (dateFilter === "Last 7 Days" || dateFilter === "Last 15 Days") {
+      if (dateFilter === "Last 7 Days") {
+        key = format(d, "EEE");
+      } else if (dateFilter === "Last 15 Days") {
         key = format(d, "dd MMM");
       } else if (dateFilter === "This Month" || dateFilter === "Last Month") {
         const startMonth = startOfMonth(d);
@@ -71,6 +73,8 @@ export default function ReportCharts({ managers, dateFilter }) {
         const monthLabel = format(d, "MMM");
         key = `Week ${weekOfMonth} (${monthLabel})`;
       } else if (dateFilter === "This Year" || dateFilter === "Last Year") {
+        key = format(d, "MMM");
+      } else if (dateFilter === "Last 3 Month" || dateFilter === "Last 6 Month") {
         key = format(d, "MMM");
       } else if (dateFilter === "All") {
         key = getYear(d).toString();
@@ -98,6 +102,15 @@ export default function ReportCharts({ managers, dateFilter }) {
         const monthDiff = monthOrder.indexOf(monthA) - monthOrder.indexOf(monthB);
         if (monthDiff !== 0) return monthDiff;
         return Number(weekA) - Number(weekB);
+      });
+    } else if (dateFilter === "Last 7 Days") {
+      const weekOrder = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+      finalData.sort((a, b) => weekOrder.indexOf(a.name) - weekOrder.indexOf(b.name));
+    } else if (dateFilter === "Last 3 Month" || dateFilter === "Last 6 Month") {
+      const monthOrder = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
+        "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+      finalData.sort((a, b) => {
+        return monthOrder.indexOf(a.name) - monthOrder.indexOf(b.name);
       });
     } else if (dateFilter.includes("Year")) {
       const monthOrder = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];

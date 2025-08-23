@@ -7,7 +7,7 @@ export const managersData = [
       workers: 4,
       report: "Pending",
       machine: "Not Assign",
-      date: "04 Apr 2024",
+      date: "04 Apr 2025",
     },
     {
       name: "Abhishek",
@@ -17,7 +17,7 @@ export const managersData = [
       workers: 3,
       report: "Done",
       machine: "Assign",
-      date: "12 Mar 2024",
+      date: "12 Mar 2025",
     },
     {
       name: "Sneha",
@@ -27,7 +27,7 @@ export const managersData = [
       workers: 5,
       report: "Pending",
       machine: "Assign",
-      date: "25 May 2024",
+      date: "25 May 2025",
     },
     {
       name: "Ravi",
@@ -37,7 +37,7 @@ export const managersData = [
       workers: 2,
       report: "Done",
       machine: "Not Assign",
-      date: "17 Feb 2024",
+      date: "17 Feb 2025",
     },
     {
       name: "Pooja",
@@ -47,7 +47,7 @@ export const managersData = [
       workers: 6,
       report: "Pending",
       machine: "Assign",
-      date: "30 Jun 2024",
+      date: "30 Jun 2025",
     },
     {
       name: "Vikas",
@@ -57,7 +57,7 @@ export const managersData = [
       workers: 3,
       report: "Done",
       machine: "Assign",
-      date: "10 Jan 2024",
+      date: "10 Jan 2025",
     },
     {
       name: "Kiran",
@@ -67,7 +67,7 @@ export const managersData = [
       workers: 1,
       report: "Pending",
       machine: "Not Assign",
-      date: "05 May 2024",
+      date: "05 May 2025",
     },
     {
       name: "Manoj",
@@ -77,7 +77,7 @@ export const managersData = [
       workers: 4,
       report: "Done",
       machine: "Assign",
-      date: "20 Apr 2024",
+      date: "20 Apr 2025",
     },
     {
       name: "Divya",
@@ -87,7 +87,7 @@ export const managersData = [
       workers: 2,
       report: "Pending",
       machine: "Not Assign",
-      date: "15 Aug 2024",
+      date: "15 Aug 2025",
     },
     {
       name: "Sandeep",
@@ -97,7 +97,7 @@ export const managersData = [
       workers: 5,
       report: "Done",
       machine: "Assign",
-      date: "08 Jul 2024",
+      date: "08 Jul 2025",
     },
     {
       name: "Priya",
@@ -107,7 +107,7 @@ export const managersData = [
       workers: 3,
       report: "Pending",
       machine: "Assign",
-      date: "14 Sep 2024",
+      date: "14 Sep 2025",
     },
     {
       name: "Amit",
@@ -117,7 +117,7 @@ export const managersData = [
       workers: 6,
       report: "Done",
       machine: "Assign",
-      date: "28 Nov 2024",
+      date: "28 Nov 2025",
     },
     {
       name: "Neha",
@@ -127,7 +127,7 @@ export const managersData = [
       workers: 4,
       report: "Pending",
       machine: "Not Assign",
-      date: "19 Dec 2024",
+      date: "19 Dec 2025",
     },
     {
       name: "Kunal",
@@ -137,7 +137,7 @@ export const managersData = [
       workers: 2,
       report: "Done",
       machine: "Assign",
-      date: "01 Feb 2024",
+      date: "01 Feb 2025",
     },
     {
       name: "Meera",
@@ -147,7 +147,7 @@ export const managersData = [
       workers: 3,
       report: "Pending",
       machine: "Assign",
-      date: "22 Mar 2024",
+      date: "22 Mar 2025",
     },
     {
       name: "Arjun",
@@ -157,7 +157,7 @@ export const managersData = [
       workers: 5,
       report: "Done",
       machine: "Not Assign",
-      date: "03 May 2024",
+      date: "03 May 2025",
     },
     {
       name: "Simran",
@@ -167,7 +167,7 @@ export const managersData = [
       workers: 4,
       report: "Pending",
       machine: "Assign",
-      date: "29 Jun 2024",
+      date: "29 Jun 2025",
     },
     {
       name: "Nitin",
@@ -177,7 +177,7 @@ export const managersData = [
       workers: 1,
       report: "Done",
       machine: "Assign",
-      date: "11 Jul 2024",
+      date: "11 Jul 2025",
     },
     {
       name: "Shreya",
@@ -187,7 +187,7 @@ export const managersData = [
       workers: 3,
       report: "Pending",
       machine: "Not Assign",
-      date: "17 Aug 2024",
+      date: "17 Aug 2025",
     },
     {
       name: "Deepak",
@@ -197,7 +197,7 @@ export const managersData = [
       workers: 6,
       report: "Done",
       machine: "Assign",
-      date: "21 Sep 2024",
+      date: "21 Sep 2025",
     },
     {
       name: "Isha",
@@ -207,7 +207,7 @@ export const managersData = [
       workers: 2,
       report: "Pending",
       machine: "Not Assign",
-      date: "15 Jan 2024",
+      date: "15 Jan 2025",
     },
     {
       name: "Lokesh",
@@ -217,7 +217,7 @@ export const managersData = [
       workers: 5,
       report: "Done",
       machine: "Assign",
-      date: "26 Feb 2024",
+      date: "26 Feb 2025",
     },
     {
       name: "Rohit",
@@ -227,7 +227,7 @@ export const managersData = [
       workers: 3,
       report: "Pending",
       machine: "Assign",
-      date: "02 Apr 2024",
+      date: "02 Apr 2025",
     },
     {
       name: "Ananya",
@@ -237,7 +237,7 @@ export const managersData = [
       workers: 4,
       report: "Done",
       machine: "Not Assign",
-      date: "19 Apr 2024",
+      date: "19 Apr 2025",
     },
     {
       name: "Sahil",
@@ -247,7 +247,7 @@ export const managersData = [
       workers: 2,
       report: "Pending",
       machine: "Not Assign",
-      date: "28 May 2024",
+      date: "28 May 2025",
     },
     {
       name: "Tanya",
@@ -257,7 +257,7 @@ export const managersData = [
       workers: 6,
       report: "Done",
       machine: "Assign",
-      date: "05 Jun 2024",
+      date: "05 Jun 2025",
     },
     {
       name: "Kartik",
@@ -267,7 +267,7 @@ export const managersData = [
       workers: 3,
       report: "Pending",
       machine: "Assign",
-      date: "14 Jul 2024",
+      date: "14 Jul 2025",
     },
     {
       name: "Aarav",
@@ -277,7 +277,7 @@ export const managersData = [
       workers: 1,
       report: "Done",
       machine: "Not Assign",
-      date: "20 Aug 2024",
+      date: "20 Aug 2025",
     },
     {
       name: "Vidya",
@@ -287,7 +287,7 @@ export const managersData = [
       workers: 4,
       report: "Pending",
       machine: "Assign",
-      date: "29 Aug 2024",
+      date: "29 Aug 2025",
     },
     {
       name: "Jay",
@@ -297,7 +297,7 @@ export const managersData = [
       workers: 2,
       report: "Done",
       machine: "Assign",
-      date: "10 Sep 2024",
+      date: "10 Sep 2025",
     },
     {
       name: "Swati",
@@ -307,7 +307,7 @@ export const managersData = [
       workers: 5,
       report: "Pending",
       machine: "Not Assign",
-      date: "15 Oct 2024",
+      date: "15 Oct 2025",
     },
     {
       name: "Harshit",
@@ -317,7 +317,7 @@ export const managersData = [
       workers: 3,
       report: "Done",
       machine: "Assign",
-      date: "21 Oct 2024",
+      date: "21 Oct 2025",
     },
     {
       name: "Monika",
@@ -327,7 +327,7 @@ export const managersData = [
       workers: 4,
       report: "Pending",
       machine: "Assign",
-      date: "30 Oct 2024",
+      date: "30 Oct 2025",
     },
     {
       name: "Aniket",
@@ -337,7 +337,7 @@ export const managersData = [
       workers: 6,
       report: "Done",
       machine: "Assign",
-      date: "04 Nov 2024",
+      date: "04 Nov 2025",
     },
     {
       name: "Bhavna",
@@ -347,7 +347,7 @@ export const managersData = [
       workers: 2,
       report: "Pending",
       machine: "Not Assign",
-      date: "12 Nov 2024",
+      date: "12 Nov 2025",
     },
     {
       name: "Raj",
@@ -357,7 +357,7 @@ export const managersData = [
       workers: 3,
       report: "Done",
       machine: "Assign",
-      date: "18 Nov 2024",
+      date: "18 Nov 2025",
     },
     {
       name: "Krishna",
@@ -367,7 +367,7 @@ export const managersData = [
       workers: 5,
       report: "Pending",
       machine: "Assign",
-      date: "22 Nov 2024",
+      date: "22 Nov 2025",
     },
     {
       name: "Geeta",
@@ -377,7 +377,7 @@ export const managersData = [
       workers: 4,
       report: "Done",
       machine: "Not Assign",
-      date: "25 Nov 2024",
+      date: "25 Nov 2025",
     },
     {
       name: "Omkar",
@@ -387,7 +387,7 @@ export const managersData = [
       workers: 2,
       report: "Pending",
       machine: "Assign",
-      date: "01 Dec 2024",
+      date: "01 Dec 2025",
     },
     {
       name: "Ramesh",
@@ -397,7 +397,7 @@ export const managersData = [
       workers: 1,
       report: "Done",
       machine: "Not Assign",
-      date: "05 Dec 2024",
+      date: "05 Dec 2025",
     },
     {
       name: "Shivani",
@@ -407,7 +407,7 @@ export const managersData = [
       workers: 3,
       report: "Pending",
       machine: "Assign",
-      date: "10 Dec 2024",
+      date: "10 Dec 2025",
     },
     {
       name: "Pankaj",
@@ -417,7 +417,7 @@ export const managersData = [
       workers: 6,
       report: "Done",
       machine: "Assign",
-      date: "15 Dec 2024",
+      date: "15 Dec 2025",
     },
     {
       name: "Chirag",
@@ -427,7 +427,7 @@ export const managersData = [
       workers: 4,
       report: "Pending",
       machine: "Not Assign",
-      date: "20 Dec 2024",
+      date: "20 Dec 2025",
     },
     {
       name: "Lata",
@@ -437,7 +437,7 @@ export const managersData = [
       workers: 5,
       report: "Done",
       machine: "Assign",
-      date: "22 Dec 2024",
+      date: "22 Dec 2025",
     },
     {
       name: "Manish",
@@ -447,7 +447,7 @@ export const managersData = [
       workers: 3,
       report: "Pending",
       machine: "Assign",
-      date: "27 Dec 2024",
+      date: "27 Dec 2025",
     },
     {
       name: "Tanvi",
@@ -457,7 +457,7 @@ export const managersData = [
       workers: 2,
       report: "Done",
       machine: "Not Assign",
-      date: "29 Dec 2024",
+      date: "29 Dec 2025",
     },
     {
       name: "Sameer",
@@ -467,7 +467,7 @@ export const managersData = [
       workers: 4,
       report: "Pending",
       machine: "Assign",
-      date: "31 Dec 2024",
+      date: "31 Dec 2025",
     },
   ];
 

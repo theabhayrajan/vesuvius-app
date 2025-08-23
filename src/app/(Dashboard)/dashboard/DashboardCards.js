@@ -56,7 +56,7 @@ export default function DashboardCards({ managers, setDateFilter, dateFilter }) 
           onChange={(e) => setDateFilter(e.target.value)}
           className="text-sm px-3 py-2 bg-[#f8faff] border border-gray-300 rounded-3xl w-40 text-[#3359a3] font-semibold focus:outline-none"
         >
-          <option value="All">All</option>
+          <option value="All">Total</option>
           <option value="Today">Today</option>
           <option value="Yesterday">Yesterday</option>
           <option value="Last 7 Days">Last 7 Days</option>

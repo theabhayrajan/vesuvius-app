@@ -10,7 +10,11 @@
   outline: none !important;
 }
 
-
 body {
   font-family: 'Montserrat', sans-serif;
+}
+
+.CircularProgressbar-text {
+  font-weight: bold !important;
+  font-family: 'Montserrat', sans-serif; /* optional */
 }

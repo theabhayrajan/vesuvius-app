@@ -31,17 +31,16 @@ const clientSchema = z.object({
     .string()
     .min(1, "Location is required")
     .regex(/^[A-Za-z][A-Za-z0-9\s]*$/, "Location must start with a letter"),
-
+  managers: z
+    .string()
+    .min(1, "Managers Name is required")
+    .regex(/^[A-Za-z\s]+$/, "Name can only contain letters and spaces"),
   workers: z
     .string()
     .refine((val) => parseInt(val) > 0, {
       message: "Workers must be greater than 0",
     }),
-  managers: z
-    .string()
-    .refine((val) => parseInt(val) > 0, {
-      message: "Managers must be greater than 0",
-    }),
+
   machine: z.enum(["Assign", "Not Assign"], {
     errorMap: () => ({ message: "Machine status is required" }),
   }),
@@ -129,7 +128,7 @@ export default function AddClientModal({ isOpen, onClose, onAdd }) {
                   {...register("name")}
                   className={`w-full border p-2 rounded placeholder-gray-500 ${errors.name ? "border-red-500" : ""
                     }`}
-                  placeholder="Name"
+                  placeholder="Client's Name"
                 />
                 {errors.name && (
                   <p className="text-red-500 text-sm">{errors.name.message}</p>
@@ -179,6 +178,21 @@ export default function AddClientModal({ isOpen, onClose, onAdd }) {
                 )}
               </div>
 
+              {/* Managers */}
+              <div>
+                <input
+                  {...register("managers")}
+                  className={`w-full border p-2 rounded placeholder-gray-500 ${errors.managers ? "border-red-500" : ""
+                    }`}
+                  placeholder="Manager's Name"
+                />
+                {errors.managers && (
+                  <p className="text-red-500 text-sm">
+                    {errors.managers.message}
+                  </p>
+                )}
+              </div>
+
               {/* Workers */}
               <div>
                 <input
@@ -194,21 +208,7 @@ export default function AddClientModal({ isOpen, onClose, onAdd }) {
                   </p>
                 )}
               </div>
-              {/* Managers */}
-              <div>
-                <input
-                  type="number"
-                  {...register("managers")}
-                  className={`w-full border p-2 rounded placeholder-gray-500 ${errors.managers ? "border-red-500" : ""
-                    }`}
-                  placeholder="No. Of managers"
-                />
-                {errors.managers && (
-                  <p className="text-red-500 text-sm">
-                    {errors.managers.message}
-                  </p>
-                )}
-              </div>
+
 
               {/* Machine */}
               <div>

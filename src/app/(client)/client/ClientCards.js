@@ -72,6 +72,12 @@ export default function ClientCards({
             setTotalClients(0);
             setTotalRobotMachines(0);
             setTotalManagers(0);
+            setActiveClients(0);
+            setInActiveClients(0);
+            setActiveManagers(0);
+            setInActiveManagers(0);
+            setActiveRobotMachines(0);
+            setInActiveRobotMachines(0);
             return;
         }
 

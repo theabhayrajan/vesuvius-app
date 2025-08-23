@@ -173,14 +173,14 @@ function normalizeMonth(str) {
         <table className="w-full text-sm text-left text-gray-800 min-w-[768px]">
           <thead className="bg-[#3359a3] text-white">
             <tr className="text-sm">
-              <th className="px-4 py-3 whitespace-nowrap">Name</th>
+              <th className="pl-10 px-4 py-3 whitespace-nowrap">Name</th>
               <th className="px-4 py-3 whitespace-nowrap">Contact No.</th>
               <th className="px-4 py-3 whitespace-nowrap">Location</th>
+              <th className="px-4 py-3 whitespace-nowrap text-center">Managers Name</th>
               <th className="px-4 py-3 whitespace-nowrap text-center">No. Of Workers</th>
-              <th className="px-4 py-3 whitespace-nowrap">No. Of Managers</th>
               <th className="px-4 py-3 whitespace-nowrap">Machine</th>
               <th className="px-4 py-3 whitespace-nowrap">Starting Date</th>
-              <th className="px-4 py-3 whitespace-nowrap text-center">Action</th>
+              <th className="px-4 py-3 whitespace-nowrap">Action</th>
             </tr>
           </thead>
             <tbody>
@@ -189,21 +189,21 @@ function normalizeMonth(str) {
                 const globalIndex = indexOfFirstRow + i;
                 return (
                   <tr key={globalIndex} className="hover:bg-gray-50 border-b border-gray-200">
-                    <td className="px-4 py-4 font-medium whitespace-nowrap">{c.name}</td>
-                    <td className="px-4 py-4 font-semibold whitespace-nowrap">{c.contact}</td>
-                    <td className="px-4 py-4 whitespace-nowrap text-sm">
+                    <td className="pl-10 px-4 py-4 font-bold whitespace-nowrap">{c.name}</td>
+                    <td className="px-4 py-4 font-bold whitespace-nowrap">{c.contact}</td>
+                    <td className="pl-4 py-4 whitespace-nowrap font-semibold text-sm">
                       {c.company}
                       <div className="text-xs text-gray-400">{c.location}</div>
                     </td>
+                   <td className=" py-4 font-bold text-center whitespace-nowrap">{c.managers}</td>
                     <td className="px-4 py-4 font-bold text-center whitespace-nowrap">{c.workers}</td>
-                   <td className="px-4 py-4 font-bold text-center whitespace-nowrap">{c.managers}</td>
                     <td className="px-4 py-4 whitespace-nowrap">
                       <span className={`inline-block px-2 py-1 rounded-md text-white text-xs min-w-[75px] text-center ${c.machine === "Assign" ? "bg-[#07bf99]" : "bg-[#c13320]"}`}>{c.machine}</span>
                     </td>
-                    <td className="px-4 py-4 whitespace-nowrap">{c.date}</td>
+                    <td className="px-4 py-4 font-semibold whitespace-nowrap">{c.date}</td>
                     <td className="px-4 py-4 text-center relative">
                       <button
-                        className="hover:bg-gray-200 cursor-pointer rounded-full w-8 h-8 flex items-center justify-center"
+                        className="hover:bg-gray-200 cursor-pointer rounded-full w-8 h-8 flex items-center font-bold justify-center"
                         onClick={() => setMenuIndex(i === menuIndex ? null : i)}
                       >
                         ⋮
@@ -229,7 +229,7 @@ function normalizeMonth(str) {
                             }}
                             className="w-full text-left px-4 py-2 hover:bg-gray-100 text-red-600 text-sm"
                           >
-                            Delete
+                            Suspend
                           </button>
                         </div>
                       )}

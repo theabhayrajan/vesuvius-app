@@ -21,14 +21,10 @@ const managerSchema = z.object({
     .min(1, "Location is required")
     .regex(/^[A-Za-z][A-Za-z0-9\s]*$/, "Location must start with a letter"),
                                                 
-  workers: z.preprocess(
-    (val) => (val !== "" ? Number(val) : undefined), // convert string -> number
-    z
-      .number({
-        invalid_type_error: "Workers must be a number",
-      })
-      .min(1, "Workers is required")
-  ),
+  workers: z
+  .number()
+  .min(1, { message: "Workers must be greater than 0" }),
+  
   machine: z.enum(["Assign", "Not Assign"], {
     errorMap: () => ({ message: "Select a valid machine status" }),
   }),

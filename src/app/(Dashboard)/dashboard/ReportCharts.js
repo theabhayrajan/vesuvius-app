@@ -3,6 +3,8 @@
 import {
   AreaChart,
   Area,
+  BarChart,
+  Bar,
   XAxis,
   YAxis,
   CartesianGrid,
@@ -89,7 +91,7 @@ export default function ReportCharts({ managers, dateFilter }) {
     }));
 
     if (dateFilter === "This Month" || dateFilter === "Last Month") {
-      const monthOrder = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+      const monthOrder = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
       finalData.sort((a, b) => {
         const [_, weekA, monthA] = a.name.match(/Week (\d+) \((\w+)\)/);
         const [__, weekB, monthB] = b.name.match(/Week (\d+) \((\w+)\)/);
@@ -98,7 +100,7 @@ export default function ReportCharts({ managers, dateFilter }) {
         return Number(weekA) - Number(weekB);
       });
     } else if (dateFilter.includes("Year")) {
-      const monthOrder = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+      const monthOrder = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
       finalData.sort((a, b) => monthOrder.indexOf(a.name) - monthOrder.indexOf(b.name));
     } else if (dateFilter === "All") {
       finalData.sort((a, b) => Number(a.name) - Number(b.name));
@@ -116,7 +118,7 @@ export default function ReportCharts({ managers, dateFilter }) {
       if (width < 640) {
         setPieSize({ inner: 70, outer: 132 });
         setChartHeight(300);
-        setLineChartHeight(250); 
+        setLineChartHeight(250);
       } else if (width < 1024) {
         setPieSize({ inner: 90, outer: 160 });
         setChartHeight(400);
@@ -124,7 +126,7 @@ export default function ReportCharts({ managers, dateFilter }) {
       } else {
         setPieSize({ inner: 110, outer: 220 });
         setChartHeight(500);
-         setLineChartHeight(400);
+        setLineChartHeight(400);
       }
     };
     handleResize();
@@ -159,26 +161,60 @@ export default function ReportCharts({ managers, dateFilter }) {
         <ResponsiveContainer
           key={`line-${chartVersion}`}
           width="100%"
-           height={lineChartHeight} 
+          height={lineChartHeight}
         >
-          <AreaChart data={hasData ? lineData : []}>
-            <CartesianGrid strokeDasharray="3 3" vertical={false} />
-            <XAxis dataKey="name" tick={{ fontWeight: "bold", fontSize: 12 }} />
-            <YAxis tick={{ fontWeight: "bold", fontSize: 12 }} />
-            <Tooltip />
-            <Area
-              dataKey="submitted"
-              stroke="#82ca9d"
-              fill="#82ca9d"
-              fillOpacity={0.3}
-            />
-            <Area
-              dataKey="approved"
-              stroke="#fcd34d"
-              fill="#fcd34d"
-              fillOpacity={0.3}
-            />
-          </AreaChart>
+          {hasData && lineData.length === 1 ? (
+            // ✅ Show BarChart if only one record
+            <BarChart
+              data={lineData}
+              barCategoryGap="40%" // controls spacing between categories
+            >
+              <CartesianGrid strokeDasharray="3 3" vertical={false} />
+              <XAxis dataKey="name" tick={{ fontWeight: "bold", fontSize: 12 }} />
+              <YAxis tick={{ fontWeight: "bold", fontSize: 12 }} />
+              <Tooltip
+                contentStyle={{
+                  backgroundColor: "white",
+                  border: "1px solid #e5e7eb",
+                  borderRadius: "8px",
+                  boxShadow: "0px 4px 6px rgba(0,0,0,0.1)",
+                }}
+                cursor={{ fill: "transparent" }}
+              />
+              <Bar
+                dataKey="submitted"
+                fill="#82ca9d"
+                barSize={35} // reduce thickness
+                radius={[6, 6, 0, 0]} // rounded top corners
+              />
+              <Bar
+                dataKey="approved"
+                fill="#fcd34d"
+                barSize={35}
+                radius={[6, 6, 0, 0]}
+              />
+            </BarChart>
+
+          ) : (
+            <AreaChart data={hasData ? lineData : []}>
+              <CartesianGrid strokeDasharray="3 3" vertical={false} />
+              <XAxis dataKey="name" tick={{ fontWeight: "bold", fontSize: 12 }} />
+              <YAxis tick={{ fontWeight: "bold", fontSize: 12 }} />
+              <Tooltip />
+              <Area
+                dataKey="submitted"
+                stroke="#82ca9d"
+                fill="#82ca9d"
+                fillOpacity={0.3}
+              />
+              <Area
+                dataKey="approved"
+                stroke="#fcd34d"
+                fill="#fcd34d"
+                fillOpacity={0.3}
+              />
+            </AreaChart>
+          )}
         </ResponsiveContainer>
         <p className="text-center text-sm mt-2 text-black">{dateFilter}</p>
       </div>
@@ -248,7 +284,7 @@ export default function ReportCharts({ managers, dateFilter }) {
                     fill={COLORS[index]}
                     stroke="none"
                   />
-                ))} 
+                ))}
               </Pie>
             ) : (
               <Pie
